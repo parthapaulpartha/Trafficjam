@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Weather</title>
+
+    <link rel="stylesheet" href="" />
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h2>Weather</h2>
+<hr>
+    <center>
+    <section class="section">
+        <div class="container">
+            <div class="container">
+                <form method="POST" role="search" action="/trafficjam/weather_c/">
+                 {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-lg-6">
+                            <input type="text" name="search" class="form-control" placeholder="Enter your city ">
+                        </div>
+                        <label class="col-lg-1">
+                            <button type="submit" class="btn btn-info">Weather</button>
+                        </label>
+
+                        <label class="col-lg-1">
+                            <h4>
+                                <a href="/trafficjam/weather_c" > ° C </a>|
+                                <a href="/trafficjam/weather_f"> ° F </a>
+                            </h4>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Start messages alert  -->
+                <ul class="form-group">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li style="color: red">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </ul>
+            <br>
+            <!-- End messages alert  -->
+
+    </section>
+    </center>
+    <br>
+   <!-- <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    {% for city_weather in weather_data %}
+                    <div class="box">
+                        <article class="media">
+                                <figure class="image is-50x50">
+                                    <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
+                                </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <h2 class="text-primary">
+                                        <span class="title"> {{city_weather.city}} </span>
+                                    </h2>
+                                    <h3 class="text-secondary">
+                                        <span class="subtitle"> {{ city_weather.temperature }}° C</span>
+                                        <br>  {{ city_weather.description }}
+
+                                         <hr>
+                                    </h3>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+        <div class="col-sm-4 ">
+                    <div class="column is-offset-4 is-4">
+
+                        <div class="box">
+                            <center>
+                                <article class="media">
+                                    <figure class="image is-50x50">
+                                        <img src="http://openweathermap.org/img/w/{{ city_weather1.icon }}.png" alt="Image">
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <h2 class="text-primary">
+                                                <span class="title"> {{city_weather1.city}} </span>
+                                            </h2>
+                                            <h3 class="text-secondary">
+                                                <span class="subtitle"> {{ city_weather1.temperature }}° C</span>
+                                                <br>  {{ city_weather1.description }}
+
+                                                <hr>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </article>
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+
+
+        <div class="col-sm-4 ">
+                    <div class="column is-offset-4 is-4">
+                        {% for city_weather in weather_data %}
+                        <div class="box">
+                            <center>
+                                <article class="media">
+                                    <figure class="image is-50x50">
+                                        <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <h2 class="text-primary">
+                                                <span class="title"> {{city_weather.city}} </span>
+                                            </h2>
+                                            <h3 class="text-secondary">
+                                                <span class="subtitle"> {{ city_weather.temperature }}° C</span>
+                                                <br>  {{ city_weather.description }}
+
+                                                <hr>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </article>
+                            </center>
+                        </div>
+                     {% endfor %}
+                    </div>
+                </div>
+
+
+        <div class="col-sm-4">
+                    <div class="column is-offset-4 is-4">
+                        <div class="box">
+                            <center>
+                                <article class="media">
+                                    <figure class="image is-50x50">
+                                        <img src="http://openweathermap.org/img/w/{{ city_weather2.icon }}.png" alt="Image">
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <h2 class="text-primary">
+                                                <span class="title"> {{city_weather2.city}} </span>
+                                            </h2>
+                                            <h3 class="text-secondary">
+                                                <span class="subtitle"> {{ city_weather2.temperature }}° C</span>
+                                                <br>  {{ city_weather2.description }}
+
+                                                <hr>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </article>
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+</div>
+
+{% endblock %}

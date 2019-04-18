@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title xmlns="http://www.w3.org/1999/html">Profile</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h2>Profile</h2>
+    <hr>
+
+    <!-- Start messages alert  -->
+        <div class="form-group">
+            {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    <!-- End messages alert  -->
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ user }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+    </tbody>
+  </table>
+    <hr>
+</div>
+
+<div class="container">
+    <a href="/trafficjam/editprofile">
+    <button type="button" class="btn btn-success">Edit Profile</button>
+    </a>
+</div>
+
+{% endblock %}

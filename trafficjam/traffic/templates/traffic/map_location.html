@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Current Location</title>
+ <meta charset="UTF-8">
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3IsfkhG9tIl9YSiLC5woUtzZKj6rMpkw&callback=initMap"
+  type="text/javascript"></script>
+
+  <style type="text/css">
+
+
+  </style>
+
+  <script type="text/javascript">
+
+  		x = navigator.geolocation;
+
+  		x.getCurrentPosition(success, failure);
+  		x.getCurrentAddress( getCurrentAddress);
+
+  		function success(position)
+
+  		{
+  			var myLat = position.coords.latitude;
+  			var myLong = position.coords.longitude;
+
+  			//alert(myLat);
+
+  			var coords = new google.maps.LatLng(myLat,myLong);
+
+
+  			var mapOptions = {
+
+  				zoom:11,
+  				center: coords,
+  				mapTypeId: google.maps.MapTypeId.ROADMAP
+
+  				// we also can use that kind of map
+
+  				//mapTypeId: google.maps.MapTypeId.SATELLITE
+  				//mapTypeId: google.maps.MapTypeId.HYBRID
+  				//mapTypeId: google.maps.MapTypeId.TERRAIN
+
+  			}
+
+  			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  			var marker = new google.maps.Marker({map:map, position:coords});
+
+  		}
+
+         function failure(){
+          x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+
+
+  </script>
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h2>Current Location</h2>
+    <hr>
+        <div class="container">
+        <a href="/trafficjam/trafficmap" class="btn btn-success btn pull-right"> Traffic Map </a>
+            <h1 class=" btn pull-right"></h1>
+        <a href="/trafficjam/satellitemap" class="btn btn-success btn pull-right"> Satellite Map </a>
+        </div><br>
+
+    <div id="map" style="width:100%;height:540px;"></div><br>
+
+    <!--<p>Address: <div id="address"></div></p>-->
+</div>
+
+</div>
+
+
+{% endblock %}

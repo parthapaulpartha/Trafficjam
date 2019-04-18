@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Search</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h2>Search</h2>
+<hr>
+
+    <!--<form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-lg-5">
+                <input type="text" name="search" class="form-control" placeholder="Enter Place name ">
+            </div>
+            <label class="col-lg-2">
+                <button type="submit" class="btn btn-info">Search</button>
+            </label>
+        </div>
+
+    </form>
+    <br>-->
+
+        <!-- Start messages alert  -->
+        <ul class="form-group">
+            {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li style="color: red">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}
+                </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </ul>
+        <br>
+    <!-- End messages alert  -->
+
+   <!-- View search  -->
+  <br> <div class="container">
+
+       {% if sr %}
+           {% for s in sr %}
+            <table border="0px" width="300px">
+
+              <tr>
+                <td>Name :</td>
+                <td>{{ s.name }}</td>
+              </tr>
+
+              <tr>
+                <td>Place_name :</td>
+                <td>{{ s.place_name }}</td>
+              </tr>
+
+              <tr>
+                <td>Trafficjam_details :</td>
+                <td>{{ s.trafficjam_details }}</td>
+              </tr>
+
+              <tr>
+                <td>Date_and_Time :</td>
+                <td>{{ s.date_and_time }}</td>
+              </tr>
+
+            </table><hr>
+            {% endfor %}
+       {% endif %}
+   </div>
+
+
+</div>
+{% endblock %}

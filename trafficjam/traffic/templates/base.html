@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load staticfiles %}
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        {% block head %}
+        <title>Traffic jam</title>
+        {% endblock %}
+</head>
+<body>
+
+   <!-- <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+       <!--
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="#"></a></li>
+        <li><a href="#"></a></li>
+    </ul>
+
+        {% if request.user.is_authenticated %}
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/trafficjam/traffic/">Traffic Jam</a>
+        </div>
+
+          <ul class="nav navbar-nav">
+            <li class="deactive"><a href="/trafficjam/home">Home</a></li>
+            <!--<li class="deactive"><a href="/trafficjam/profile">Profile</a></li>
+            <li class="deactive"><a href="/trafficjam/post">Post</a></li>
+            <!--<li class="deactive"><a href="/trafficjam/search">Search</a></li>
+            <li class="deactive"><a href="/trafficjam/weather_c">Weather</a></li>
+            <li class="deactive"><a href="/trafficjam/map_location">Map</a></li>
+            <!--<li class="deactive"><a href="/trafficjam/about">About Us</a></li>
+            <li class="deactive"><a href="/trafficjam/contact">Contact Us</a></li>
+
+          </ul>
+
+        <form class="navbar-form navbar-left" role="search" action="/trafficjam/search/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="Search">
+            </div>
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </form>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/trafficjam/profile"><span class="glyphicon glyphicon-user"></span> {{ request.user }} </a></li>
+          <li><a href="/trafficjam/signout/"><span class="glyphicon glyphicon-log-in"></span> Sign Out</a></li>
+        </ul>
+
+        {% else %}
+
+        <div class="navbar-header">
+      <a class="navbar-brand" href="/trafficjam/traffic/">Traffic Jam</a>
+    </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/trafficjam/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/trafficjam/signin"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>
+        </ul>
+
+       {% endif %}
+  </div>
+</nav>-->
+
+
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            {% if request.user.is_authenticated %}
+
+             <a class="navbar-brand navbar-header" href="/trafficjam/traffic/">Traffic Jam</a>
+
+             <!-- using this for use all device -->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#nav1">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse " id="nav1">
+
+                <ul class="nav navbar-nav">
+                   <li class="deactive"><a href="/trafficjam/home">Home</a></li>
+                    <!--<li class="deactive"><a href="/trafficjam/profile">Profile</a></li>-->
+                    <li class="deactive"><a href="/trafficjam/post">Post</a></li>
+                    <!--<li class="deactive"><a href="/trafficjam/search">Search</a></li>-->
+                    <li class="deactive"><a href="/trafficjam/weather_c">Weather</a></li>
+                    <li class="deactive"><a href="/trafficjam/map_location">Map</a></li>
+                    <!--<li class="deactive"><a href="/trafficjam/about">About Us</a></li>
+                    <li class="deactive"><a href="/trafficjam/contact">Contact Us</a></li>-->
+                </ul>
+
+                <form class="navbar-form navbar-left" role="search" action="/trafficjam/search/" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="Search">
+                </div>
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/trafficjam/profile"><span class="glyphicon glyphicon-user"></span> {{ request.user }} </a></li>
+                  <li><a href="/trafficjam/signout/"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                </ul>
+            </div>
+
+             {% else %}
+
+            <a class="navbar-brand navbar-header" href="/trafficjam/traffic/">Traffic Jam</a>
+
+            <!-- using this for use all device -->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#nav2">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse " id="nav2">
+
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/trafficjam/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="/trafficjam/signin"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>
+                </ul>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+
+    {% block body %}
+
+    {% endblock %}
+
+<br><br>
+
+</body>
+
+<!-- Footer -->
+<!--<footer class="page-footer font-small blue" style="">
+  <div class="footer- text-center py-3">
+      Made by SR Paul
+  </div>
+</footer>-->
+<!-- Footer -->
+
+
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2">
+
+        <li class="list-inline-item">
+            <!--<a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>-->
+            <h3 ><a href="//www.facebook.com" class="fa fa-facebook-square btn btn-primary"></a></h3>
+        </li>
+
+          <li class="list-inline-item">
+              <h3 ><a href="//www.youtube.com" class="fa fa-youtube-play btn btn-danger"></a></h3>
+        </li>
+
+        <li class="list-inline-item">
+          <a href="/trafficjam/about" class="btn btn-success btn-rounded">About Us</a>
+        </li>
+
+          <li class="list-inline-item">
+          <a href="/trafficjam/contact" class="btn btn-success btn-rounded">Contact Us</a>
+        </li>
+
+          <li class="list-inline-item">
+              <h3 ><a href="//twitter.com" class="fa fa-twitter btn btn-info"></a></h3>
+        </li>
+
+          <li class="list-inline-item">
+              <h3 ><a href="//www.whatsapp.com" class="fa fa-whatsapp btn btn-success"></a></h3>
+        </li>
+
+
+
+      </ul>
+      <!-- Call to action -->
+    </div>
+
+    <!-- Footer Elements -->
+
+    <div class="footer-copyright text-center py-3">Made by
+    <a> SR Paul</a>
+    </div><br>
+
+  </footer>
+
+<!-- Footer -->
+
+
+
+</html>

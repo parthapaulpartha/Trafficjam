@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title> Sign In</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <center>
+            <h2> Sign In </h2>
+            <hr>
+
+            <!-- Start messages alert  -->
+                <div class="form-group">
+                    {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <!-- End messages alert  -->
+
+            <form class="site-form" action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-info"> Submit </button>
+            </form><br>
+
+                 <h5><strong>Don't have an account. <a href="/trafficjam/signup"> Sign Up</a></strong></h5>
+        </center>
+    </div>
+{% endblock %}

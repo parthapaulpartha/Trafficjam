@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Comment</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h2>All Comments</h2>
+<hr>
+
+    {% for comment in comments%}
+    <table border="0px" width="300px">
+
+              <tr>
+                <td>Name :</td>
+                <td>{{ user }}</td>
+              </tr>
+
+              <tr>
+                <td>Comment :</td>
+                <td>{{ comment.comment }}</td>
+              </tr>
+
+              <tr>
+                <td>Date_and_Time :</td>
+                <td>{{ comment.date_and_time }}</td>
+              </tr>
+
+            </table>
+
+    <hr>
+
+    {% endfor %}
+
+
+
+
+</div>
+{% endblock %}

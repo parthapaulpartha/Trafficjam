@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>About Us</title>
+{% load staticfiles %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>About Us</h2>
+    <hr>
+
+    <img src="{% static 'images/about-us.jpg' %}" alt="No" style="width:100%;height:250px;"><br><br>
+
+
+    <div class="container">
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+
+                <li><h2><i class="glyphicon glyphicon-import" ></i></h2>
+                    <h3>Resources</h3>
+                    <p>Take resources directly into the field from users.</p>
+                </li>
+
+            </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+
+                <li><h2><i class="glyphicon glyphicon-user"></i></h2>
+                    <h3>Users</h3>
+                    <p>All users will get correct info of Trafficjam and Traffic Details.
+                       Users will get current weather info.
+                       Users will get current current location also.</p>
+
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+
+                <li><h2><i class="glyphicon glyphicon-cog"></i></h2>
+                    <h3>Security</h3>
+                    <p>Here we will try to provide best security for all users.</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+
+                <li><h2><i class="glyphicon glyphicon-phone-alt"></i></h2>
+                    <h3>Contact</h3>
+                    <p>Users can contact with us anytime.</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+        </div><br>
+
+
+</div>
+
+
+{% endblock %}

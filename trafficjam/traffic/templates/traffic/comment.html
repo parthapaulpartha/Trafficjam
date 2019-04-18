@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Comment</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h2>Comment</h2>
+<hr>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-info"> Submit </button>
+
+    </form>
+
+    <hr>
+
+    <a href="/trafficjam/comments">
+    <button type="button" class="btn btn-success">View all Comments</button>
+    </a>
+
+</div>
+{% endblock %}

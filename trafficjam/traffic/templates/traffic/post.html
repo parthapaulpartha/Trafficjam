@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Create Post</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h2>Create Post</h2>
+    <hr>
+
+    <!-- Start messages alert  -->
+                <div class="form-group">
+                    {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <!-- End messages alert  -->
+
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-info"> Submit </button>
+
+    </form><br><br>
+</div>
+
+
+{% endblock %}

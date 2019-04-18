@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title> Edit Profile</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+            <h2> Edit profile </h2>
+            <hr>
+
+
+            <form class="site-form" method="post">
+               {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-info"> Submit </button>
+            </form>
+            <hr>
+    </div>
+
+    <div class="container">
+    <a href="/trafficjam/changepassword">
+    <button type="button" class="btn btn-success">Change Password</button>
+    </a>
+</div>
+{% endblock %}
