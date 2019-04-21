@@ -110,7 +110,9 @@ def create_post(request):
     if request.method == 'POST':
         form = createform(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.name = request.user
+            instance.save()
             messages.success(request, "You successfully create the post")
             #return redirect('/trafficjam/post')
 
@@ -368,7 +370,9 @@ def contact_us(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.name = request.user
+            instance.save()
 
     form = ContactForm()
     return render(request,'traffic/contact_us.html', {'form':form})
@@ -379,7 +383,9 @@ def comment(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.name = request.user
+            instance.save()
 
     form = CommentForm()
     #comments = Comment.objects.all()

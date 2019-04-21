@@ -49,7 +49,7 @@ class createform(forms.ModelForm):
     class Meta:
         model = postcreate
         fields = [
-            'name',
+            #'name',
             'place_name',
             'trafficjam_details',
             'date_and_time'
@@ -65,7 +65,7 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = [
-            'name',
+            #'name',
             'email',
             'message'
         ]
