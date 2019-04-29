@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponseRedirect, redirect
 from django.http import JsonResponse
+from django.db.models import Q
 
 from traffic.forms import (
             SignupForm,
@@ -150,7 +151,8 @@ def search(request):
     if request.method == 'POST':
         search = request.POST['search']
         if search:
-            match = postcreate.objects.filter(place_name__icontains = search)
+            match = postcreate.objects.filter( Q(place_name__icontains = search) |
+                                                Q(date_and_time__icontains = search))
 
             if match:
                 return render(request,'traffic/search.html', {'sr':match})
