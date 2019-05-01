@@ -36,7 +36,7 @@ class Contact(models.Model):
 
 
     def __str__(self):
-        return self.email
+        return str(self.name)
 
     class Meta:
         verbose_name_plural = " Contact "
@@ -49,7 +49,7 @@ class Comment(models.Model):
 
 
     def __str__(self):
-        return self.comment
+        return str(self.name)
 
     class Meta:
         verbose_name_plural = "Comment"
