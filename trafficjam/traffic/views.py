@@ -109,7 +109,7 @@ def Change_password(request):
 # ---------- Create post -------
 def create_post(request):
     if request.method == 'POST':
-        form = createform(request.POST)
+        form = createform(request.POST or None, request.FILES or None)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.name = request.user
@@ -128,7 +128,7 @@ def home(request):
 # ---------- Edit post -------
 def edit_post(request, id=id):
     post = postcreate.objects.get(id=id)
-    form = createform(request.POST or None, instance=post)
+    form = createform(request.POST or None,request.FILES or None,, instance=post)
 
     if form.is_valid():
         obj = form.save(commit=False)
